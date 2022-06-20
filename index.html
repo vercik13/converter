@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Převody jednotek</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500&display=swap" rel="stylesheet"> 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <style>
+
+    .container-md {
+      background-color: #f7f7f7;
+    }
+    .text-center {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  
+    .col {
+      display: flex;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      align-items: center;
+      justify-items: center;
+      color: rgba(86,86,86,.8);
+    }
+  </style>
+
+<div class="container-md p-3 mb-2 ">
+
+  <div class="text-center text-uppercase mb-5">Převody jednotek</div>
+
+    <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6">
+      <div class="col mb-2">
+
+        <input class="form-control" id="inputFootH" type="number" span="outputFootH"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <label class="col">foot<sup>3</sup>/hodinu</label>
+
+      <script>function lengthConverter(valNum) {
+        document.getElementById("outputFootH").innerHTML = valNum / 0.0022046;
+      } 
+      </script>
+
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputFootM" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">foot<sup>3</sup>/minutu</div>
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputFootS" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">foot<sup>3</sup>/sekundu</div>
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputLitrH" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">litr<sup>3</sup>/hodinu</div>
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputLitrM" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">litr<sup>3</sup>/minutu</div>
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputLitrS" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">litr<sup>3</sup>/sekundu</div>
+
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputMetrH" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">metr<sup>3</sup>/hodinu</div>
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputMetrM" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">metr<sup>3</sup>/minutu</div>
+
+      <div class="col mb-2">
+        <input class="form-control" id="inputMetrS" type="number"
+        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+      </div>
+      <div class="col">metr<sup>3</sup>/sekundu</div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
