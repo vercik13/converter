@@ -45,74 +45,96 @@
   </style>
 
 <div class="container-md p-3 mb-2 ">
-
   <div class="text-center text-uppercase mb-5">Převody jednotek</div>
-
     <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6">
       <div class="col mb-2">
 
-        <input class="form-control" id="inputFootH" type="number" span="outputFootH"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        <input class="form-control" id="inputFootH" type="number" 
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <label class="col">foot<sup>3</sup>/hodinu</label>
-
-      <script>function lengthConverter(valNum) {
-        document.getElementById("outputFootH").innerHTML = valNum / 0.0022046;
-      } 
-      </script>
-
+      <label for="inputFootH" class="col">foot<sup>3</sup>/hodinu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputFootM" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">foot<sup>3</sup>/minutu</div>
+      <label for="inputFootM" class="col">foot<sup>3</sup>/minutu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputFootS" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">foot<sup>3</sup>/sekundu</div>
+      <label for="inputFootS" class="col">foot<sup>3</sup>/sekundu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputLitrH" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">litr<sup>3</sup>/hodinu</div>
+      <label class="col">litr<sup>3</sup>/hodinu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputLitrM" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">litr<sup>3</sup>/minutu</div>
+      <label class="col">litr<sup>3</sup>/minutu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputLitrS" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">litr<sup>3</sup>/sekundu</div>
+      <label class="col">litr<sup>3</sup>/sekundu</label>
 
 
       <div class="col mb-2">
         <input class="form-control" id="inputMetrH" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">metr<sup>3</sup>/hodinu</div>
+      <label class="col">metr<sup>3</sup>/hodinu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputMetrM" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">metr<sup>3</sup>/minutu</div>
+      <label class="col">metr<sup>3</sup>/minutu</label>
 
       <div class="col mb-2">
         <input class="form-control" id="inputMetrS" type="number"
-        oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
+        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
       </div>
-      <div class="col">metr<sup>3</sup>/sekundu</div>
+      <label class="col">metr<sup>3</sup>/sekundu</label>
     </div>
   </div>
 
+
+  <script>
+    let inputFootHRef = document.getElementById("inputFootH");
+    let inputFootMRef = document.getElementById("inputFootM");
+    let inputFootSRef = document.getElementById("inputFootS");
+
+    let convertFrominputFootH = () => {
+      let inputFootH = inputFootH.value;
+      inputFootMRef.value = (inputFootH / 0.60).toFixed(2);
+      inputFootSRef.value = (inputFootH / 3600).toFixed(2);
+
+    };
+
+    let convertFrominputFootM = () => {
+      let inputFootM = inputFootMRef.value;
+      inputFootHRef.value = (inputFootM / 2.205).toFixed(2);
+      inputFootSRef.value = (inputFootM * 16).toFixed(2);
+    };
+
+    let convertFrominputFootS = () => {
+      let inputFootS = inputFootSRef.value;
+      inputFootHRef.value = (inputFootS / 35.274).toFixed(2);
+      inputFootMRef.value = (inputFootS / 16).toFixed(2);
+    };
+
+    inputFootHRef.addEventListener("input", convertFrominputFootH);
+    inputFootMRef.addEventListener("input", convertFrominputFootM);
+    inputFootSRef.addEventListener("input", convertFrominputFootS);
+
+  </script>
 
 
 </body>
