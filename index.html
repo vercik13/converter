@@ -112,22 +112,22 @@
     let inputFootSRef = document.getElementById("inputFootS");
 
     let convertFrominputFootH = () => {
-      let inputFootH = inputFootH.value;
-      inputFootMRef.value = (inputFootH / 0.60).toFixed(2);
+      let inputFootH = inputFootHRef.value;
+      inputFootMRef.value = (inputFootH / 60).toFixed(2);
       inputFootSRef.value = (inputFootH / 3600).toFixed(2);
 
     };
 
     let convertFrominputFootM = () => {
       let inputFootM = inputFootMRef.value;
-      inputFootHRef.value = (inputFootM / 2.205).toFixed(2);
-      inputFootSRef.value = (inputFootM * 16).toFixed(2);
+      inputFootHRef.value = (inputFootM * 60).toFixed(2);
+      inputFootSRef.value = (inputFootM / 60).toFixed(2);
     };
 
     let convertFrominputFootS = () => {
       let inputFootS = inputFootSRef.value;
-      inputFootHRef.value = (inputFootS / 35.274).toFixed(2);
-      inputFootMRef.value = (inputFootS / 16).toFixed(2);
+      inputFootHRef.value = (inputFootS * 3600).toFixed(2);
+      inputFootMRef.value = (inputFootS * 60).toFixed(2);
     };
 
     inputFootHRef.addEventListener("input", convertFrominputFootH);
