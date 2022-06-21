@@ -49,57 +49,48 @@
     <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6">
       <div class="col mb-2">
 
-        <input class="form-control" id="inputFootH" type="number" 
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputFootH" type="number">
       </div>
       <label for="inputFootH" class="col">foot<sup>3</sup>/hodinu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputFootM" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputFootM" type="number">
       </div>
       <label for="inputFootM" class="col">foot<sup>3</sup>/minutu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputFootS" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputFootS" type="number">
       </div>
       <label for="inputFootS" class="col">foot<sup>3</sup>/sekundu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputLitrH" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputLitrH" type="number">
       </div>
-      <label class="col">litr<sup>3</sup>/hodinu</label>
+      <label class="col">litr/hodinu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputLitrM" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputLitrM" type="number">
       </div>
-      <label class="col">litr<sup>3</sup>/minutu</label>
+      <label class="col">litr/minutu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputLitrS" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputLitrS" type="number">
       </div>
-      <label class="col">litr<sup>3</sup>/sekundu</label>
+      <label class="col">litr/sekundu</label>
 
 
       <div class="col mb-2">
-        <input class="form-control" id="inputMetrH" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputMetrH" type="number">
       </div>
       <label class="col">metr<sup>3</sup>/hodinu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputMetrM" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputMetrM" type="number">
       </div>
       <label class="col">metr<sup>3</sup>/minutu</label>
 
       <div class="col mb-2">
-        <input class="form-control" id="inputMetrS" type="number"
-        oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        <input class="form-control" id="inputMetrS" type="number">
       </div>
       <label class="col">metr<sup>3</sup>/sekundu</label>
     </div>
@@ -111,29 +102,166 @@
     let inputFootMRef = document.getElementById("inputFootM");
     let inputFootSRef = document.getElementById("inputFootS");
 
+    let inputLitrHRef = document.getElementById("inputLitrH");
+    let inputLitrMRef = document.getElementById("inputLitrM");
+    let inputLitrSRef = document.getElementById("inputLitrS");
+
+    let inputMetrHRef = document.getElementById("inputMetrH");
+    let inputMetrMRef = document.getElementById("inputMetrM");
+    let inputMetrSRef = document.getElementById("inputMetrS");
+
+
+    //convert from inputFoot: 
     let convertFrominputFootH = () => {
       let inputFootH = inputFootHRef.value;
-      inputFootMRef.value = (inputFootH / 60).toFixed(2);
-      inputFootSRef.value = (inputFootH / 3600).toFixed(2);
+      inputFootMRef.value = (inputFootH * 0.01666).toFixed(5);
+      inputFootSRef.value = (inputFootH * 2.77778).toFixed(5);
+
+      inputLitrHRef.value = (inputFootH * 28.3168).toFixed(5);
+      inputLitrMRef.value = (inputFootH * 0.47194).toFixed(5);
+      inputLitrSRef.value = (inputFootH * 0.00786).toFixed(5);
+
+      inputMetrHRef.value = (inputFootH * 0.02831).toFixed(5);
+      inputMetrMRef.value = (inputFootH * 4.71947).toFixed(5);
+      inputMetrSRef.value = (inputFootH * 7.86579).toFixed(5);
 
     };
 
     let convertFrominputFootM = () => {
       let inputFootM = inputFootMRef.value;
-      inputFootHRef.value = (inputFootM * 60).toFixed(2);
-      inputFootSRef.value = (inputFootM / 60).toFixed(2);
+      inputFootHRef.value = (inputFootM * 60).toFixed(5);
+      inputFootSRef.value = (inputFootM * 0.01666).toFixed(5);
+
+      inputLitrHRef.value = (inputFootM * 1699.01).toFixed(5);
+      inputLitrMRef.value = (inputFootM * 28.3168).toFixed(5);
+      inputLitrSRef.value = (inputFootM * 0.47194).toFixed(5);
+
+      inputMetrHRef.value = (inputFootM * 1.69901).toFixed(5);
+      inputMetrMRef.value = (inputFootM * 0.02831).toFixed(5);
+      inputMetrSRef.value = (inputFootM * 4.71947).toFixed(5);
     };
 
     let convertFrominputFootS = () => {
       let inputFootS = inputFootSRef.value;
       inputFootHRef.value = (inputFootS * 3600).toFixed(2);
       inputFootMRef.value = (inputFootS * 60).toFixed(2);
+
+      inputLitrHRef.value = (inputFootS * 1.01941).toFixed(5);
+      inputLitrMRef.value = (inputFootS * 1699.01).toFixed(5);
+      inputLitrSRef.value = (inputFootS * 28.3168).toFixed(5);
+
+      inputMetrHRef.value = (inputFootS * 101.941).toFixed(5);
+      inputMetrMRef.value = (inputFootS * 1.69901).toFixed(5);
+      inputMetrSRef.value = (inputFootS * 0.02831).toFixed(5);
     };
 
     inputFootHRef.addEventListener("input", convertFrominputFootH);
     inputFootMRef.addEventListener("input", convertFrominputFootM);
     inputFootSRef.addEventListener("input", convertFrominputFootS);
 
+
+    //convert from input Litr:
+    let convertFrominputLitrH = () => {
+      let inputLitrH = inputLitrHRef.value;
+      inputLitrMRef.value = (inputLitrH * 0.01666).toFixed(5);
+      inputLitrSRef.value = (inputLitrH * 2.77778).toFixed(5);
+
+      inputFootHRef.value = (inputLitrH * 0.03531).toFixed(5);
+      inputFootMRef.value = (inputLitrH * 5.88578).toFixed(5);
+      inputFootSRef.value = (inputLitrH * 9.80963).toFixed(5);
+
+      inputMetrHRef.value = (inputLitrH * 0.001).toFixed(5);
+      inputMetrMRef.value = (inputLitrH * 1.66667).toFixed(5);
+      inputMetrSRef.value = (inputLitrH * 2.77778).toFixed(5);
+
+    };
+
+    let convertFrominputLitrM = () => {
+      let inputLitrM = inputLitrMRef.value;
+      inputLitrHRef.value = (inputLitrM * 60).toFixed(5);
+      inputLitrSRef.value = (inputLitrM * 0.01666).toFixed(5);
+
+      inputFootHRef.value = (inputLitrM * 2.11888).toFixed(5);
+      inputFootMRef.value = (inputLitrM * 0.03531).toFixed(5);
+      inputFootSRef.value = (inputLitrM * 5.88578).toFixed(5);
+
+      inputMetrHRef.value = (inputLitrM * 0.06).toFixed(5);
+      inputMetrMRef.value = (inputLitrM * 0.001).toFixed(5);
+      inputMetrSRef.value = (inputLitrM * 1.66667).toFixed(5);
+    };
+
+    let convertFrominputLitrS = () => {
+      let inputLitrS = inputLitrSRef.value;
+      inputLitrHRef.value = (inputLitrS * 3600).toFixed(2);
+      inputLitrMRef.value = (inputLitrS * 60).toFixed(2);
+
+      inputFootHRef.value = (inputLitrS * 127.133).toFixed(5);
+      inputFootMRef.value = (inputLitrS * 2.11888).toFixed(5);
+      inputFootSRef.value = (inputLitrS * 0.03531).toFixed(5);
+
+      inputMetrHRef.value = (inputLitrS * 3.6).toFixed(5);
+      inputMetrMRef.value = (inputLitrS * 0.06).toFixed(5);
+      inputMetrSRef.value = (inputLitrS * 0.001).toFixed(5);
+    };
+
+    inputLitrHRef.addEventListener("input", convertFrominputLitrH);
+    inputLitrMRef.addEventListener("input", convertFrominputLitrM);
+    inputLitrSRef.addEventListener("input", convertFrominputLitrS);
+
+
+
+
+    //convert from input Metr:
+
+    let convertFrominputMetrH = () => {
+      let inputMetrH = inputMetrHRef.value;
+      inputMetrMRef.value = (inputMetrH * 0.01666).toFixed(5);
+      inputMetrSRef.value = (inputMetrH * 2.77778).toFixed(5);
+
+      inputLitrHRef.value = (inputMetrH * 1000).toFixed(5);
+      inputLitrMRef.value = (inputMetrH * 16.6667).toFixed(5);
+      inputLitrSRef.value = (inputMetrH * 0.27777).toFixed(5);
+
+      inputFootHRef.value = (inputMetrH * 35.3147).toFixed(5);
+      inputFootMRef.value = (inputMetrH * 0.58857).toFixed(5);
+      inputFootSRef.value = (inputMetrH * 0.0098).toFixed(5);
+
+    };
+
+    let convertFrominputMetrM = () => {
+      let inputMetrM = inputMetrMRef.value;
+      inputMetrHRef.value = (inputMetrM * 60).toFixed(5);
+      inputMetrSRef.value = (inputMetrM * 0.01666).toFixed(5);
+
+      inputLitrHRef.value = (inputMetrM * 6e4).toFixed(5);
+      inputLitrMRef.value = (inputMetrM * 1000).toFixed(5);
+      inputLitrSRef.value = (inputMetrM * 16.6667).toFixed(5);
+
+      inputFootHRef.value = (inputMetrM * 2118.88).toFixed(5);
+      inputFootMRef.value = (inputMetrM * 35.3147).toFixed(5);
+      inputFootSRef.value = (inputMetrM * 0.58857).toFixed(5);
+    };
+
+    let convertFrominputMetrS = () => {
+      let inputMetrS = inputMetrSRef.value;
+      inputMetrHRef.value = (inputMetrS * 3600).toFixed(2);
+      inputMetrMRef.value = (inputMetrS * 60).toFixed(2);
+
+      inputLitrHRef.value = (inputMetrS * 3.6e6).toFixed(5);
+      inputLitrMRef.value = (inputMetrS * 6e4).toFixed(5);
+      inputLitrSRef.value = (inputMetrS * 1000).toFixed(5);
+
+      inputFootHRef.value = (inputMetrS * 1.27133e5).toFixed(5);
+      inputFootMRef.value = (inputMetrS * 2118.88).toFixed(5);
+      inputFootSRef.value = (inputMetrS * 35.3147).toFixed(5);
+    };
+
+    inputMetrHRef.addEventListener("input", convertFrominputMetrH);
+    inputMetrMRef.addEventListener("input", convertFrominputMetrM);
+    inputMetrSRef.addEventListener("input", convertFrominputMetrS);
+
+
+    
   </script>
 
 
