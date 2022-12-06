@@ -1,0 +1,19 @@
+.container-md {
+  background-color: #f7f7f7;
+}
+/*.text-center {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+}*/
+
+.col {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  align-items: center;
+  justify-items: center;
+  color: rgba(86,86,86,.8);
+}
